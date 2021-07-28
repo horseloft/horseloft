@@ -1,0 +1,21 @@
+/.idea
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### VS Code ###
+.vscode/
+
+#vendor数据 不提交至版本库
+/Library/vendor/*
+!/Library/vendor/README.md
+
+#日志文件 不提交至版本库
+/Services/*Service/Log/*
+!/Services/DemoService/Log/README.md
