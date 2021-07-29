@@ -324,7 +324,7 @@ trait ConditionBuilder
                 break;
             case 'not_eq':
                 $result = [
-                    'sign' => ' != ?',
+                    'sign' => ' <> ?',
                     'value' => $content
                 ];
                 break;
