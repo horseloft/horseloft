@@ -302,6 +302,19 @@ trait ConditionBuilder
 
     /**
      * 实体符号转SQL符号
+     *
+     * eq   =
+     * ne   <>
+     * gt   >
+     * ge   >=
+     * lt   <
+     * le   <=
+     * in   in
+     * ni   not in
+     * bt   between
+     * nbt  not between
+     * like like
+     *
      * @param array $condition
      * @return array
      */
@@ -322,7 +335,7 @@ trait ConditionBuilder
                     'value' => $content
                 ];
                 break;
-            case 'not_eq':
+            case 'ne':
                 $result = [
                     'sign' => ' <> ?',
                     'value' => $content
@@ -334,7 +347,7 @@ trait ConditionBuilder
                     'value' => $content
                 ];
                 break;
-            case 'gte':
+            case 'ge':
                 $result = [
                     'sign' => ' >= ?',
                     'value' => $content
@@ -346,7 +359,7 @@ trait ConditionBuilder
                     'value' => $content
                 ];
                 break;
-            case 'lte':
+            case 'le':
                 $result = [
                     'sign' => ' <= ?',
                     'value' => $content
@@ -358,7 +371,7 @@ trait ConditionBuilder
                     'value' => $content
                 ];
                 break;
-            case 'between':
+            case 'bt':
                 $result = [
                     'sign' => ' between ? and ?',
                     'value' => [
@@ -367,7 +380,7 @@ trait ConditionBuilder
                     ]
                 ];
                 break;
-            case 'not_between':
+            case 'nbt':
                 $result = [
                     'sign' => ' not between ? and ?',
                     'value' => [
@@ -387,7 +400,7 @@ trait ConditionBuilder
                     'value' => $condition['in']
                 ];
                 break;
-            case 'not_in':
+            case 'ni':
                 $str = ' not in (';
                 $inCount = count($condition['not_in']);
                 for ($j = 0; $j < $inCount; $j++) {
