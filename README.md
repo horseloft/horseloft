@@ -55,6 +55,5 @@ A simple php API framework
 
 
 TODO
-  添加MongoDB支持、添加SQLserver支持
-  优化Helper()->horseloft();
+  添加MongoDB支持、添加SQLserver支持、添加rabbitmq支持
 
