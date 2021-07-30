@@ -42,7 +42,7 @@ trait SetBuilder
         $str = ' set ';
         foreach ($data as $key => $value) {
             if (is_string($key)) {
-                $str .= '`' . $key . '` = ?,';
+                $str .= $this->packageColumn($key) . ' = ?,';
             } else {
                 throw new \RuntimeException('Unsupported column:' . $key, HORSE_LOFT_DATABASE_ERROR_CODE);
             }

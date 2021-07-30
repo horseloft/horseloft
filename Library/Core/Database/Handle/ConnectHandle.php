@@ -103,10 +103,13 @@ trait ConnectHandle
                     . ';port=' . $config['port']
                     . ';charset=' . $this->getCharset($config);
                 break;
+            case 'sqlserver':
             case 'dblib':
                 $dsn = $config['driver']
                     . ':host=' . $config['host'] . ':' . $config['port']
                     . ';dbname=' . $config['database'];
+                $this->leftSign = '[';
+                $this->rightSign = ']';
                 break;
             default:
                 throw new \RuntimeException('Unsupported driver:' . $config['driver'], HORSE_LOFT_DATABASE_ERROR_CODE);

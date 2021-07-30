@@ -73,6 +73,12 @@ class Origin
     //查询计时时间戳
     protected $start = 0;
 
+    //标识符
+    protected $rightSign = '`';
+
+    //标识符
+    protected $leftSign = '`';
+
     protected const UPDATE = 'UPDATE';
 
     protected const SELECT = 'SELECT';
@@ -139,16 +145,16 @@ class Origin
     {
         switch($this->header) {
             case self::SELECT:
-                $string = $this->header . ' ' . $this->column . ' from `' . $this->table . '`' . $this->joinSql;
+                $string = 'select ' . $this->column . ' from ' . $this->packageColumn($this->table) . $this->joinSql;
                 break;
             case self::UPDATE:
-                $string = $this->header . ' `' . $this->table . '`' . $this->setSql;
+                $string = 'update ' . $this->packageColumn($this->table) . $this->setSql;
                 break;
             case self::DELETE:
-                $string = $this->header . ' from `' . $this->table . '`';
+                $string = 'delete from ' . $this->packageColumn($this->table);
                 break;
             case self::INSERT:
-                $string = $this->header . ' into `' . $this->table . '` ' .$this->insertSql;
+                $string = 'insert into ' . $this->packageColumn($this->table) .$this->insertSql;
                 break;
             default:
                 throw new \RuntimeException('Unsupported operation:' . $this->header, HORSE_LOFT_DATABASE_ERROR_CODE);
@@ -198,7 +204,6 @@ class Origin
             // limit
             $string .= $this->limitSql;
         }
-
         return $string;
     }
 
@@ -210,5 +215,16 @@ class Origin
     public function getParam()
     {
         return array_merge($this->setParam, $this->andParam, $this->orParam);
+    }
+
+    /**
+     * 用转移符号包裹参数
+     *
+     * @param string $column
+     * @return string
+     */
+    protected function packageColumn(string $column)
+    {
+        return $this->leftSign . $column . $this->rightSign;
     }
 }

@@ -166,7 +166,7 @@ trait SelectBuilder
      */
     private function setJoinSql(string $type, string $table, string $on)
     {
-        $this->joinSql = ' ' . $type . ' join ' . $table . ' ';
+        $this->joinSql = ' ' . $type . ' join ' . $this->packageColumn($table) . ' ';
         if ($on != '') {
             $this->joinSql .= 'on ' . $on . ' ';
         }

@@ -255,6 +255,9 @@ trait ConditionBuilder
 
     /**
      * where条件拼接
+     *
+     * key不支持table.filed格式
+     *
      * @param array $where
      * @return array
      */
@@ -263,24 +266,16 @@ trait ConditionBuilder
         //前一步验证 empty $where
         $arr = [];
         $str = '';
-
         foreach ($where as $key => $value) {
-            //矫正符号
-            if (strpos($key, '.')) {
-                $redress = '';
-            } else {
-                $redress = '`';
-            }
-
             if (is_array($value)) {
                 if (key($value) == 'string') {
                     if (!is_string(end($value))) {
                         throw new \RuntimeException('Unsupported column value', HORSE_LOFT_DATABASE_ERROR_CODE);
                     }
-                    $str .= $redress . $key . $redress . ' ' . end($value) . ' and ';
+                    $str .= $this->packageColumn($key) . ' ' . end($value) . ' and ';
                 } else {
                     $convert = $this->convert($value);
-                    $str .= $redress . $key . $redress . $convert['sign'] . ' and ';
+                    $str .= $this->packageColumn($key) . $convert['sign'] . ' and ';
                     if (is_array($convert['value'])) {
                         foreach ($convert['value'] as $k => $val) {
                             $arr[] = $val;
@@ -291,7 +286,7 @@ trait ConditionBuilder
                 }
             } else {
                 $arr[] = $value;
-                $str .= $redress . $key . $redress . ' = ? and ';
+                $str .= $this->packageColumn($key) . ' = ? and ';
             }
         }
         return [

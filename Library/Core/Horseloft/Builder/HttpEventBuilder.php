@@ -143,6 +143,7 @@ trait HttpEventBuilder
             $response->end(Spanner::encode(['code' => $code, 'message' => $message, 'data' => $returnData]));
             //主动关闭本次连接
             $this->container()->getServer()->close($response->fd);
+            return;
         });
     }
 }

@@ -110,7 +110,7 @@ trait CollectorBuilder
             }
 
             if ($isNeedColumn) {
-                $fields .= '`' . $key . '`,';
+                $fields .= $this->packageColumn($key);
             }
         }
 
