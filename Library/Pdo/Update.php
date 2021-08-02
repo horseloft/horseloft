@@ -15,8 +15,6 @@ class Update extends Origin
 {
     use ConditionBuilder,ExecuteBuilder;
 
-    protected $builder = false;
-
     /**
      * @var \PDO
      */
@@ -62,6 +60,5 @@ class Update extends Origin
 
         $this->setSql = rtrim($str, ',');
         $this->setParam = $arr;
-        $this->builder = true;
     }
 }

@@ -66,15 +66,9 @@ class Transaction
      * @param array $data
      * @return Insert
      */
-    public function insert(array $data = [])
+    public function insert(array $data)
     {
-        $insert = new Insert($this->config, $this->table, $this->connect);
-
-        if (!empty($data)) {
-            $insert->builder($data);
-        }
-
-        return $insert;
+        return new Insert($this->config, $this->table, $data, $this->connect);
     }
 
     /**

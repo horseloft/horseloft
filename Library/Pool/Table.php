@@ -117,15 +117,9 @@ class Table
      * @param array $data
      * @return \Library\Pdo\Insert
      */
-    public static function insert(array $data = [])
+    public static function insert(array $data)
     {
-        $insert = self::getInstance()->insert();
-
-        if (!empty($data)) {
-            $insert->builder($data);
-        }
-
-        return $insert;
+        return self::getInstance()->insert($data);
     }
 
     /**

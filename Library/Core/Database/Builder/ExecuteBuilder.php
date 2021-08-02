@@ -27,18 +27,6 @@ trait ExecuteBuilder
         if (is_null($this->connect)) {
             $this->connect = $this->connect();
         }
-
-        if ($this->header == self::UPDATE) {
-            $tail = ' set()';
-        } else if ($this->header == self::INSERT) {
-            $tail = ' builder() or collector()';
-        } else {
-            $tail = '';
-        }
-
-        if ($this->builder == false) {
-            throw new \RuntimeException('Need to use' . $tail . ' before execute()', HORSE_LOFT_DATABASE_ERROR_CODE);
-        }
         $statement = $this->statement($this->getQuery(), $this->getParam());
 
         if ($this->header == self::INSERT) {

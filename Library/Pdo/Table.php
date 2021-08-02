@@ -116,20 +116,12 @@ class Table
      *
      * $data 键 => 值; 键为数据库字段，值为字段的值
      *
-     * $data 如果是空 需要使用 builder() 或者 collector() 将写入的数据传入
-     *
      * @param array $data
      * @return Insert
      */
-    public static function insert(array $data = [])
+    public static function insert(array $data)
     {
-        $insert = new Insert(self::connection(static::$connection), static::$table);
-
-        if (!empty($data)) {
-            $insert->builder($data);
-        }
-
-        return $insert;
+        return new Insert(self::connection(static::$connection), static::$table, $data);
     }
 
     /**
@@ -138,8 +130,6 @@ class Table
      * ------------------------------------------------------------
      *
      * $data是 键=>值 格式的一维数组；键对应数据表的字段名称，值即为字段值
-     *
-     * $data 如果是空 需要使用 set() 将数据传入
      *
      * @param array $data
      * @return Update

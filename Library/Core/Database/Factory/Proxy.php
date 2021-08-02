@@ -65,11 +65,12 @@ final class Proxy
 
     /**
      *
+     * @param array $data
      * @return Insert
      */
-    public function insert()
+    public function insert(array $data)
     {
-        return new Insert([], $this->table, $this->connect);
+        return new Insert([], $this->table, $data, $this->connect);
     }
 
     /**
