@@ -11,6 +11,7 @@ use Library\Utils\Helper;
 use Library\Utils\Http;
 use Services\DemoService\Models\City;
 use Services\DemoService\Models\People;
+use Services\DemoService\Models\PoolCity;
 use Services\DemoService\Models\Teacher;
 
 class DemoController
@@ -321,7 +322,7 @@ class DemoController
     }
 
     /**
-     * SQLserver查询
+     * SQLserver 连接池查询
      *
      * @return array
      */
@@ -332,6 +333,26 @@ class DemoController
         $all = City::select('cityID as id,cityName as name')->where(['cityID' => ['gt' => 348]])->all();
 
         $page = City::select()->page(2, 2)->orderAsc('cityID')->all();
+
+        return [
+            'first' => $first,
+            'all' => $all,
+            'page' => $page
+        ];
+    }
+
+    /**
+     * SQLserver查询 非连接池
+     *
+     * @return array
+     */
+    public static function microPoolSelect()
+    {
+        $first = PoolCity::select()->first();
+
+        $all = PoolCity::select('cityID as id,cityName as name')->where(['cityID' => ['gt' => 348]])->all();
+
+        $page = PoolCity::select()->page(2, 2)->orderAsc('cityID')->all();
 
         return [
             'first' => $first,
