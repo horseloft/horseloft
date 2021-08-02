@@ -169,7 +169,7 @@ $horseLoft->setSwooleConfig(DEMO_SWOOLE_CONFIG);
  * 默认路由不支持拦截器
  *
  */
-$horseLoft->setRoute('firstRoute', 'secondRoute');
+//$horseLoft->setRoute('firstRoute', 'secondRoute');
 
 
 
