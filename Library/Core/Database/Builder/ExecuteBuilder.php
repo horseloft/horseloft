@@ -20,7 +20,7 @@ trait ExecuteBuilder
      *
      * 使用 === false 判断失败
      *
-     * @return false|string
+     * @return int
      */
     public function execute()
     {
@@ -36,7 +36,6 @@ trait ExecuteBuilder
             $tail = '';
         }
 
-        //update => set , insert => builder collector
         if ($this->builder == false) {
             throw new \RuntimeException('Need to use' . $tail . ' before execute()', HORSE_LOFT_DATABASE_ERROR_CODE);
         }
