@@ -68,7 +68,7 @@ trait SelectBuilder
         if (empty($column)) {
             $this->column = '*';
         } else {
-            $this->column = $column;
+            $this->column = $this->packageSelectColumn($column);
         }
         return $this;
     }
