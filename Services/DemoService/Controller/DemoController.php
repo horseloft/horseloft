@@ -107,6 +107,11 @@ class DemoController
         ];
     }
 
+    /**
+     * PDO demo
+     *
+     * @return array
+     */
     public static function pdo()
     {
         return People::pdo()->fetch('select * from people where id > ?', 0);
@@ -114,41 +119,48 @@ class DemoController
 
     /**
      * --------------------------------------------------------
-     *  获取数据表中的第一条数据 一维数组
+     *  获取数据表中数据
      * --------------------------------------------------------
      *
      * @return array
      */
-    public static function first()
+    public static function select()
     {
         //普通查询
-        return Teacher::select()->first();
-
-        //使用连接池查询
-        //return People::select()->first();
+        $first = Teacher::select()->first();
+        //查询全部
+        $all = Teacher::select()->all();
+        //条件查询
+        $where = Teacher::select('username as name,id')->where(['id' => ['gt' => 3]])->first();
+        return [
+            'first' => $first,
+            'all' => $all,
+            'where' => $where
+        ];
     }
 
     /**
-     * --------------------------------------------------------
-     *  获取全部数据 二维数组
-     * --------------------------------------------------------
+     * 连接池功能查询
      *
      * @return array
      */
-    public static function all()
+    public static function poolSelect()
     {
-        //普通查询 查询 id > 2 的数据
-        $condition = [
-            'id' => ['gt' => 0],
-            'age' => ['or' => [1,2,3]]
+        //查询一条
+        $first = People::select()->first();
+        //查询全部
+        $all = People::select()->all();
+        //条件查询
+        $where = People::select('username as name')->where(['id' => ['gt' => 2]])->first();
+        return [
+            'first' => $first,
+            'all' => $all,
+            'where' => $where
         ];
-        return Teacher::select()->where($condition)->getCompleteQuery();
-
-        //使用连接池查询
-        //return People::select()->where(['id' => ['gt' => 1]])->all();
     }
 
     /**
+     * 批量数据插入
      *
      * @return false|string
      */
@@ -158,13 +170,68 @@ class DemoController
             ['id' => 1,'username' => 'new_teacher_1', 'password' => 'password'],
             ['id' => 2,'username' => 'new_teacher_2', 'password' => 'password'],
             ['id' => 3,'username' => 'new_teacher_3', 'password' => 'password'],
-            ['id' => 4,'username' => 'new_teacher_4', 'password' => 'password'],
+            ['id' => 4,'username' => 'new_teacher_4', 'password' => 'password']
         ];
         //普通操作
         return Teacher::insert()->collector($data)->execute();
+    }
 
+    /**
+     * 批量插入数据
+     *
+     * @return false|string
+     */
+    public static function poolInsert()
+    {
+        $data = [
+            ['id' => 1, 'username' => 'people_1', 'password' => 'password'],
+            ['id' => 2, 'username' => 'people_2', 'password' => 'password'],
+            ['id' => 3, 'username' => 'people_3', 'password' => 'password'],
+            ['id' => 4, 'username' => 'people_4', 'password' => 'password'],
+            ['id' => 5, 'username' => 'people_5', 'password' => 'password']
+        ];
         //使用连接池查询
-//        return People::insert()->collector($data)->execute();
+        return People::insert()->collector($data)->execute();
+    }
+
+    /**
+     * 更新数据
+     *
+     * @return int
+     */
+    public static function update()
+    {
+        return Teacher::update(['username' => 'teacher_1'])->where(['id' => 1])->execute();
+    }
+
+    /**
+     * 更新数据
+     *
+     * @return int
+     */
+    public static function poolUpdate()
+    {
+        return People::update(['username' => 'people_new'])->where(['id' => 1])->execute();
+    }
+
+    /**
+     * 删除数据
+     *
+     * @return int
+     */
+    public static function delete()
+    {
+        return Teacher::delete()->where(['id' => ['eq' => 1]])->execute();
+    }
+
+    /**
+     * 删除数据
+     *
+     * @return int
+     */
+    public static function poolDelete()
+    {
+        return People::delete()->where(['id' => 1])->execute();
     }
 
     /**
