@@ -21,19 +21,26 @@ final class Proxy
      */
     private $connect;
 
+    private $config;
+
     private $table;
 
     private $key;
 
     /**
      * Proxy constructor.
+     * @param string $key
      * @param string $table
+     * @param \PDO $connect
+     * @param $config
      */
-    public function __construct(string $key, string $table, \PDO $connect)
+    public function __construct(string $key, string $table, \PDO $connect, $config)
     {
         $this->key = $key;
 
         $this->table = $table;
+
+        $this->config = $config;
 
         $this->connect = $connect;
     }
@@ -50,7 +57,7 @@ final class Proxy
      */
     public function select()
     {
-        return new Select([], $this->table, $this->connect);
+        return new Select($this->config, $this->table, $this->connect);
     }
 
     /**
@@ -60,7 +67,7 @@ final class Proxy
      */
     public function update(array $data)
     {
-        return new Update([], $this->table, $data, $this->connect);
+        return new Update($this->config, $this->table, $data, $this->connect);
     }
 
     /**
@@ -70,7 +77,7 @@ final class Proxy
      */
     public function insert(array $data)
     {
-        return new Insert([], $this->table, $data, $this->connect);
+        return new Insert($this->config, $this->table, $data, $this->connect);
     }
 
     /**
@@ -79,7 +86,7 @@ final class Proxy
      */
     public function delete()
     {
-        return new Delete([], $this->table, $this->connect);
+        return new Delete($this->config, $this->table, $this->connect);
     }
 
     /**
@@ -88,7 +95,7 @@ final class Proxy
      */
     public function transaction()
     {
-        return new Transaction([], $this->table, $this->connect);
+        return new Transaction($this->config, $this->table, $this->connect);
     }
 
     /**
@@ -97,6 +104,6 @@ final class Proxy
      */
     public function pdo()
     {
-        return new PDO([], $this->connect);
+        return new PDO($this->config, $this->connect);
     }
 }

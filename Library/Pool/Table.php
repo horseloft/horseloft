@@ -137,9 +137,9 @@ class Table
      */
     private static function getInstance()
     {
-        $connection = self::connection(static::$connection);
+        $config = self::connection(static::$connection);
 
-        return new Proxy(self::getKey($connection), static::$table, self::getConnect($connection));
+        return new Proxy(self::getKey($config), static::$table, self::getConnect($config), $config);
     }
 
     /**

@@ -82,7 +82,7 @@ trait SelectBuilder
      */
     public function first()
     {
-        $this->limitSql = ' limit 1';
+        $this->firstResultQueryBuilder();
         return $this->fetch(false);
     }
 
@@ -103,8 +103,6 @@ trait SelectBuilder
      */
     public function count()
     {
-        $this->limitSql = ' limit 1';
-
         $this->column = 'count(1) as num';
 
         $data = $this->fetch(false);
@@ -130,14 +128,20 @@ trait SelectBuilder
     public function page(int $page = 1, int $pageSize = 20)
     {
         $start = 0;
-        $offset = 1;
+        $size = 1;
         if ($pageSize > 0) {
-            $offset = $pageSize;
+            $size = $pageSize;
         }
         if ($page > 1) {
-            $start = ($page - 1) * $offset;
+            $start = ($page - 1) * $size;
         }
-        $this->limitSql = ' limit ' . $start . ',' . $offset;
+        if ($this->config['driver'] == 'sqlserver') {
+            $this->limitSql = ' offset ' . $start . ' rows fetch next ' . $size . ' rows only';
+        } else {
+            $this->limitSql = ' limit ' . $start . ',' . $size;
+        }
+
+        //$this->limitSql = ' limit ' . $start . ',' . $size;
 
         return $this;
     }
@@ -169,6 +173,28 @@ trait SelectBuilder
         $this->joinSql = ' ' . $type . ' join ' . $this->packageColumn($table) . ' ';
         if ($on != '') {
             $this->joinSql .= 'on ' . $on . ' ';
+        }
+    }
+
+    /**
+     * 一条数据的限制条件
+     */
+    private function firstResultQueryBuilder()
+    {
+        if ($this->config['driver'] == 'sqlserver') {
+            $this->column = 'top 1 ' . $this->column;
+        } else {
+            $this->limitSql = ' limit 1';
+        }
+    }
+
+    //select * from ArtistModels  order by ArtistId offset 4 rows fetch next 5 rows only
+    private function pageResultQueryBuilder(int $start, int $size)
+    {
+        if ($this->config['driver'] == 'sqlserver') {
+            $this->limitSql = ' offset ' . $size . ' rows fetch next ' . $size . ' rows only';
+        } else {
+            $this->limitSql = ' limit ' . $start . ',' . $size;
         }
     }
 }

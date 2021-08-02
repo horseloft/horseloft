@@ -100,6 +100,11 @@ class Origin
         $this->table = $table;
 
         $this->header = $type;
+
+        if ($config['driver'] == 'sqlserver') {
+            $this->leftSign = '[';
+            $this->rightSign = ']';
+        }
     }
 
     /**
