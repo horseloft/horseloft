@@ -218,7 +218,7 @@ class Origin
     }
 
     /**
-     * 用转移符号包裹参数
+     * 用转义符号包裹参数
      *
      * @param string $column
      * @return string
@@ -226,5 +226,34 @@ class Origin
     protected function packageColumn(string $column)
     {
         return $this->leftSign . $column . $this->rightSign;
+    }
+
+    /**
+     * 查询的SQL字段添加转义符号
+     *
+     * @param string $column
+     * @return string
+     */
+    protected function packageSelectColumn(string $column)
+    {
+        if ($column == '*') {
+            return $column;
+        }
+        $columnStr = '';
+        $columnList = explode(',', $column);
+        foreach ($columnList as $col) {
+            if (strpos($col, ' as ')) {
+                $colList = explode(' as ', $col);
+                $columnStr .= $this->packageColumn($colList[0]) . ' as ' . $this->packageColumn($colList[1]) . ',';
+                continue;
+            }
+            if (strpos($col, ' ')) {
+                $colList = explode(' ', $col);
+                $columnStr .= $this->packageColumn($colList[0]) . ' ' . $this->packageColumn($colList[1]) . ',';
+                continue;
+            }
+            $columnStr .= $this->packageColumn($col) . ',';
+        }
+        return rtrim($columnStr, ',');
     }
 }
