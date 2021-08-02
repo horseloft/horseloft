@@ -9,6 +9,7 @@ namespace Services\DemoService\Controller;
 
 use Library\Utils\Helper;
 use Library\Utils\Http;
+use Services\DemoService\Models\City;
 use Services\DemoService\Models\People;
 use Services\DemoService\Models\Teacher;
 
@@ -132,10 +133,13 @@ class DemoController
         $all = Teacher::select()->all();
         //条件查询
         $where = Teacher::select('username as name,id')->where(['id' => ['gt' => 3]])->first();
+        //分页
+        $page = Teacher::select()->page()->all();
         return [
             'first' => $first,
             'all' => $all,
-            'where' => $where
+            'where' => $where,
+            'page' => $page
         ];
     }
 
@@ -152,10 +156,13 @@ class DemoController
         $all = People::select()->all();
         //条件查询
         $where = People::select('username as name')->where(['id' => ['gt' => 2]])->first();
+        //分页
+        $page = People::select()->page()->all();
         return [
             'first' => $first,
             'all' => $all,
-            'where' => $where
+            'where' => $where,
+            'page' => $page
         ];
     }
 
@@ -311,5 +318,25 @@ class DemoController
     {
         echo 'crontab ' . json_encode($arr) . PHP_EOL;
         return true;
+    }
+
+    /**
+     * SQLserver查询
+     *
+     * @return array
+     */
+    public static function microSelect()
+    {
+        $first = City::select()->first();
+
+        $all = City::select('cityID as id,cityName as name')->where(['cityID' => ['gt' => 348]])->all();
+
+        $page = City::select()->page(2, 2)->orderAsc('cityID')->all();
+
+        return [
+            'first' => $first,
+            'all' => $all,
+            'page' => $page
+        ];
     }
 }
