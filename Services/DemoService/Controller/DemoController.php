@@ -173,7 +173,7 @@ class DemoController
             ['id' => 4,'username' => 'new_teacher_4', 'password' => 'password']
         ];
         //普通操作
-        return Teacher::insert()->collector($data)->execute();
+        return Teacher::insert($data)->execute();
     }
 
     /**
@@ -191,7 +191,7 @@ class DemoController
             ['id' => 5, 'username' => 'people_5', 'password' => 'password']
         ];
         //使用连接池查询
-        return People::insert()->collector($data)->execute();
+        return People::insert($data)->execute();
     }
 
     /**
