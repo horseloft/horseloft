@@ -144,15 +144,9 @@ class Table
      * @param array $data
      * @return Update
      */
-    public static function update(array $data = [])
+    public static function update(array $data)
     {
-        $update = new Update(self::connection(static::$connection), static::$table);
-
-        if (!empty($data)) {
-            $update->set($data);
-        }
-
-        return $update;
+        return new Update(self::connection(static::$connection), static::$table, $data);
     }
 
     /**

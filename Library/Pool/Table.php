@@ -107,15 +107,9 @@ class Table
      * @param array $data
      * @return \Library\Pdo\Update
      */
-    public static function update(array $data = [])
+    public static function update(array $data)
     {
-        $update = self::getInstance()->update();
-
-        if (!empty($data)) {
-            $update->set($data);
-        }
-
-        return $update;
+        return self::getInstance()->update($data);
     }
 
     /**

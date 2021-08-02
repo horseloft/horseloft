@@ -9,12 +9,11 @@ namespace Library\Pdo;
 
 use Library\Core\Database\Factory\Origin;
 use Library\Core\Database\Builder\ConditionBuilder;
-use Library\Core\Database\Builder\SetBuilder;
 use Library\Core\Database\Builder\ExecuteBuilder;
 
 class Update extends Origin
 {
-    use SetBuilder,ConditionBuilder,ExecuteBuilder;
+    use ConditionBuilder,ExecuteBuilder;
 
     protected $builder = false;
 
@@ -26,11 +25,43 @@ class Update extends Origin
     /**
      * Update constructor.
      * @param array $config
+     * @param array $data
      * @param string $table
      */
-    public function __construct(array $config, string $table, \PDO $connect = null)
+    public function __construct(array $config, string $table, array $data, \PDO $connect = null)
     {
         $this->connect = $connect;
         parent::__construct($config, $table, self::UPDATE);
+        $this->set($data);
+    }
+
+    /**
+     * update set
+     *
+     * @param array $data
+     */
+    private function set(array $data)
+    {
+        if (empty($data)) {
+            throw new \RuntimeException('Empty update', HORSE_LOFT_DATABASE_ERROR_CODE);
+        }
+        $arr = [];
+        $str = ' set ';
+        foreach ($data as $key => $value) {
+            if (is_string($key)) {
+                $str .= $this->packageColumn($key) . ' = ?,';
+            } else {
+                throw new \RuntimeException('Unsupported column:' . $key, HORSE_LOFT_DATABASE_ERROR_CODE);
+            }
+            if (is_string($value) || is_numeric($value) || is_null($value)) {
+                $arr[] = $value;
+            } else {
+                throw new \RuntimeException('Unsupported column:' . $key, HORSE_LOFT_DATABASE_ERROR_CODE);
+            }
+        }
+
+        $this->setSql = rtrim($str, ',');
+        $this->setParam = $arr;
+        $this->builder = true;
     }
 }

@@ -56,15 +56,9 @@ class Transaction
      * @param array $data
      * @return Update
      */
-    public function update(array $data = [])
+    public function update(array $data)
     {
-        $update = new Update($this->config, $this->table, $this->connect);
-
-        if (!empty($data)) {
-            $update->set($data);
-        }
-
-        return $update;
+        return new Update($this->config, $this->table, $data, $this->connect);
     }
 
     /**

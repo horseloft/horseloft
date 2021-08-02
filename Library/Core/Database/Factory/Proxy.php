@@ -55,11 +55,12 @@ final class Proxy
 
     /**
      *
+     * @param array $data
      * @return Update
      */
-    public function update()
+    public function update(array $data)
     {
-        return new Update([], $this->table, $this->connect);
+        return new Update([], $this->table, $data, $this->connect);
     }
 
     /**
