@@ -140,9 +140,6 @@ trait SelectBuilder
         } else {
             $this->limitSql = ' limit ' . $start . ',' . $size;
         }
-
-        //$this->limitSql = ' limit ' . $start . ',' . $size;
-
         return $this;
     }
 
@@ -185,16 +182,6 @@ trait SelectBuilder
             $this->column = 'top 1 ' . $this->column;
         } else {
             $this->limitSql = ' limit 1';
-        }
-    }
-
-    //select * from ArtistModels  order by ArtistId offset 4 rows fetch next 5 rows only
-    private function pageResultQueryBuilder(int $start, int $size)
-    {
-        if ($this->config['driver'] == 'sqlserver') {
-            $this->limitSql = ' offset ' . $size . ' rows fetch next ' . $size . ' rows only';
-        } else {
-            $this->limitSql = ' limit ' . $start . ',' . $size;
         }
     }
 }
