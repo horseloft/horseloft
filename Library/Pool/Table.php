@@ -163,14 +163,31 @@ class Table
             $connect = array_shift(self::$pool[$key]);
 
             //验证$connect是否过期
-            $statement = $connect->query('select 1 from ' . static::$table . ' limit 1');
-            if ($statement == false) {
+            if (self::isEnableConnect($connect, $config)) {
                 return (new self())->connect($config);
             }
-
             return $connect;
         }
-
         return (new self())->connect($config);
+    }
+
+    /**
+     * 验证当前连接是否有效
+     *
+     * @param \PDO $pdo
+     * @param array $config
+     * @return bool
+     */
+    private static function isEnableConnect(\PDO $pdo, array $config)
+    {
+        if ($config['driver'] == 'sqlserver') {
+            $ping = 'select top 1 1 from ' . static::$table;
+        } else {
+            $ping = 'select 1 from ' . static::$table . ' limit 1';
+        }
+        if ($pdo->query($ping) === false) {
+            return false;
+        }
+        return true;
     }
 }
