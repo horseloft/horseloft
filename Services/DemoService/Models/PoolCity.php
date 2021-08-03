@@ -7,7 +7,7 @@
 
 namespace Services\DemoService\Models;
 
-use Library\Pdo\Table;
+use Library\Pool\Table;
 
 class PoolCity extends Table
 {
