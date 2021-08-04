@@ -27,10 +27,26 @@ class Select extends Origin
      * @param array $config
      * @param string $table
      */
-    public function __construct(array $config, string $table, \PDO $connect = null)
+    public function __construct(array $config, string $table, string $column, \PDO $connect = null)
     {
         $this->connect = $connect;
 
         parent::__construct($config, $table, self::SELECT);
+
+        $this->column($column);
+    }
+
+    /**
+     * 查询字段
+     *
+     * @param string $column
+     */
+    private function column(string $column = '*')
+    {
+        if (empty($column)) {
+            $this->column = '*';
+        } else {
+            $this->column = $this->packageSelectColumn($column);
+        }
     }
 }

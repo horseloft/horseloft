@@ -102,11 +102,7 @@ class Table
      */
     public static function select(string $column = '*')
     {
-       $select = new Select(self::connection(static::$connection), static::$table);
-
-       $select->column($column);
-
-       return $select;
+        return new Select(self::connection(static::$connection), static::$table, $column);
     }
 
     /**

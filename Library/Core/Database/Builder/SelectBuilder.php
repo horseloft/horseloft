@@ -58,22 +58,6 @@ trait SelectBuilder
     }
 
     /**
-     * 查询字段
-     *
-     * @param string $column
-     * @return $this
-     */
-    public function column(string $column = '*')
-    {
-        if (empty($column)) {
-            $this->column = '*';
-        } else {
-            $this->column = $this->packageSelectColumn($column);
-        }
-        return $this;
-    }
-
-    /**
      * 查询一条
      *
      * limit优先级 first() > page() > limit()

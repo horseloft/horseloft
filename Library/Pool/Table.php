@@ -95,11 +95,7 @@ class Table
      */
     public static function select(string $column = '*')
     {
-        $select = self::getInstance()->select();
-
-        $select->column($column);
-
-        return $select;
+        return self::getInstance()->select($column);
     }
 
     /**

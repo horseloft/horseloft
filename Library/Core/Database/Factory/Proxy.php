@@ -55,9 +55,9 @@ final class Proxy
      * @param \PDO|null $connect
      * @return Select
      */
-    public function select()
+    public function select(string $column)
     {
-        return new Select($this->config, $this->table, $this->connect);
+        return new Select($this->config, $this->table, $column, $this->connect);
     }
 
     /**

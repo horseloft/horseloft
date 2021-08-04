@@ -44,11 +44,7 @@ class Transaction
      */
     public function select(string $column = '*')
     {
-        $select = new Select($this->config, $this->table, $this->connect);
-
-        $select->column($column);
-
-        return $select;
+        return new Select($this->config, $this->table, $column, $this->connect);
     }
 
     /**
