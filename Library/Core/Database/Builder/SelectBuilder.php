@@ -168,4 +168,18 @@ trait SelectBuilder
             $this->limitSql = ' limit 1';
         }
     }
+
+    /**
+     * 查询字段
+     *
+     * @param string $column
+     */
+    private function column(string $column = '*')
+    {
+        if (empty($column)) {
+            $this->column = '*';
+        } else {
+            $this->column = $this->packageSelectColumn($column);
+        }
+    }
 }
