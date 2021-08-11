@@ -7,7 +7,7 @@
 
 namespace Services\DemoService\Models;
 
-use Library\Pdo\Table;
+use Horseloft\Database\Table;
 
 class City extends Table
 {

@@ -7,9 +7,9 @@
 
 namespace Services\DemoService\Models;
 
-use Library\Pool\Table;
+use Horseloft\Database\Store;
 
-class PoolCity extends Table
+class PoolCity extends Store
 {
     public static $table = 'city';
 

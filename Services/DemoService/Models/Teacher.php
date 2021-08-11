@@ -7,9 +7,9 @@
 
 namespace Services\DemoService\Models;
 
-use Library\Pdo\Table;
+use Horseloft\Database\Store;
 
-class Teacher extends Table
+class Teacher extends Store
 {
     public static $table = 'teacher';
 

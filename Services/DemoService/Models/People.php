@@ -7,7 +7,7 @@
 
 namespace Services\DemoService\Models;
 
-use Library\Pool\Table;
+use Horseloft\Database\Table;
 
 class People extends Table
 {

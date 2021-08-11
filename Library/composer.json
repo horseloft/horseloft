@@ -17,17 +17,22 @@
         "ext-json":"^1.0",
         "ext-swoole":"~4.4.0",
         "ext-curl": "*",
-        "ext-redis": ">=2.2.3"
+        "ext-redis": ">=2.2.3",
+        "horseloft/database": "~1.0"
     },
     "require-dev": {
         "swoole/ide-helper": "~4.4.0",
         "phpunit/phpunit": "~5.0"
     },
     "prefer-stable": true,
-    "repositories": {
-        "packagist": {
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/horseloft/Database"
+        },
+        {
             "type": "composer",
             "url": "https://mirrors.aliyun.com/composer"
         }
-    }
+    ]
 }
