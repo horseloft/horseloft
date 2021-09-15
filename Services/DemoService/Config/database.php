@@ -22,6 +22,14 @@ return [
             'username' => 'htmain',
             'password' => 'z49yf^LLC,d,V9B)+q',
             'driver' => 'sqlserver'
+        ],
+        'know_test' => [
+            'host' => '192.168.199.79',
+            'port' => 3310,
+            'database' => 'htolmain_new',
+            'username' => 'htol_user',
+            'password' => 'htwx_mysql@@102800',
+            'driver' => 'mysql'
         ]
     ],
 ];
