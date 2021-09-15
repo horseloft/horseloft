@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c6e4c107b7dae04f869c078f7481f66a",
+    "content-hash": "e76249e8558334aa36a5b2a1ab1781e9",
     "packages": [
         {
             "name": "horseloft/database",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/horseloft/Database.git",
-                "reference": "4c7e35711d880a9c9b1a58a0948950374c998d03"
+                "reference": "82d5bfe92aec96d7e19a3aec215274ac62bc2a7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/horseloft/Database/zipball/4c7e35711d880a9c9b1a58a0948950374c998d03",
-                "reference": "4c7e35711d880a9c9b1a58a0948950374c998d03",
+                "url": "https://api.github.com/repos/horseloft/Database/zipball/82d5bfe92aec96d7e19a3aec215274ac62bc2a7f",
+                "reference": "82d5bfe92aec96d7e19a3aec215274ac62bc2a7f",
                 "shasum": ""
             },
             "require": {
@@ -47,10 +47,10 @@
                 "SQLServer"
             ],
             "support": {
-                "source": "https://github.com/horseloft/Database/tree/v1.0.0",
+                "source": "https://github.com/horseloft/Database/tree/v1.0.1",
                 "issues": "https://github.com/horseloft/Database/issues"
             },
-            "time": "2021-08-11T05:22:20+00:00"
+            "time": "2021-09-15T05:39:52+00:00"
         }
     ],
     "packages-dev": [
@@ -1473,6 +1473,7 @@
                 "issues": "https://github.com/sebastianbergmann/resource-operations/issues",
                 "source": "https://github.com/sebastianbergmann/resource-operations/tree/master"
             },
+            "abandoned": true,
             "time": "2015-07-28T20:34:47+00:00"
         },
         {
@@ -1802,10 +1803,10 @@
     "platform": {
         "php": "~7.1",
         "ext-json": "^1.0",
-        "ext-swoole": "~4.4.0",
+        "ext-swoole": ">=4.4.0",
         "ext-curl": "*",
         "ext-redis": ">=2.2.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }

@@ -15,7 +15,7 @@
     "require": {
         "php": "~7.1",
         "ext-json":"^1.0",
-        "ext-swoole":"~4.4.0",
+        "ext-swoole":">=4.4.0",
         "ext-curl": "*",
         "ext-redis": ">=2.2.3",
         "horseloft/database": "~1.0"
