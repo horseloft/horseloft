@@ -27,11 +27,11 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/horseloft/Database"
+            "url": "https://github.com/horseloft/horseloft-core"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/horseloft/horseloft-core"
+            "url": "https://github.com/horseloft/horseloft-database"
         },
         {
             "type": "composer",
