@@ -28,15 +28,7 @@ return [
 
         /*
          * 定时调用指定的方法
-         *
-         * 例：DemoController::crontab
-         * 则会调Controller/DemoController.php中的 crontab 方法
          */
-        'callback' => ['\Application\Controller\DemoController', 'timer5']
+        'callback' => ['\Application\Controller\DemoController', 'index']
     ],
-    'timer1' => [
-        'timer' => 1000,
-        'args' => ['name' => 'Tom'],
-        'callback' => ['\Application\Controller\DemoController', 'timer1']
-    ]
 ];

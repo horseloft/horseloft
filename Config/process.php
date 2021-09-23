@@ -17,11 +17,7 @@ return [
      * 3. args 自定义进程执行的回调方法的参数
      */
     'first_process' => [
-        'callback' => ['\Application\Controller\DemoController', 'process1'],
+        'callback' => ['\Application\Controller\DemoController', 'index'],
         'args' => []
     ],
-    'second_process' => [
-        'callback' => ['\Application\Controller\DemoController', 'process2'],
-        'args' => []
-    ]
 ];

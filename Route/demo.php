@@ -53,7 +53,7 @@ return [
      * value为路由指向的类和类方法
      */
     'post' => [
-        'index' => 'DemoController::post',
+        'index' => 'DemoController::index',
     ],
 
     /*
@@ -65,7 +65,7 @@ return [
      */
 
     'get' => [
-        'index' => 'DemoController::get',
+        'index' => 'DemoController::index',
     ],
 
     /*
@@ -77,6 +77,6 @@ return [
      */
 
     'any' => [
-        'index' => 'DemoController::any',
+        'index' => 'DemoController::index',
     ]
 ];

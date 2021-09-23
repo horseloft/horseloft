@@ -11,12 +11,7 @@
 return [
     'crontab_1' => [
         'command' => '* * * * *',
-        'callback' => ['Application\Controller\DemoController', 'crontab1'],
-        'args' => []
-    ],
-    'crontab_2' => [
-        'command' => '*/2 * * * *',
-        'callback' => ['\Application\Controller\DemoController', 'crontab2'],
+        'callback' => ['Application\Controller\DemoController', 'index'],
         'args' => []
     ],
 ];

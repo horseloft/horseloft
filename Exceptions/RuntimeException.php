@@ -32,26 +32,9 @@ class RuntimeException
     public static function handle(Request $request, \Throwable $e)
     {
         return [
-            /*
-             * 在此处定义返回码
-             *
-             * 如果没有code字段，则使用默认的全局错误码
-             */
-            'code' => $e->getMessage(),
-
-            /*
-             * 定义接口返回数据
-             *
-             * 如果没有data字段 则将该方法的返回值作为data返回
-             */
-            'data' => $request->all(),
-
-            /*
-             * 定义接口返回的message
-             *
-             * 如果没有message字段 则默认返回''
-             */
-            'message' => '服务运行异常：' . $e->getTraceAsString()
+            'request' => $request->all(),
+            'message' => $e->getMessage(),
+            'trace' => $e->getTraceAsString()
         ];
     }
 }
