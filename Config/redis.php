@@ -1,9 +1,4 @@
 <?php
-/**
- * Date: 2021/5/17 15:35
- * User: YHC
- * Desc:
- */
 
 return [
     'dev' => [

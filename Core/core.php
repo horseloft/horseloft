@@ -18,59 +18,8 @@ if (is_numeric($argv[1])) {
 define('APPLICATION_ENV', $argv[1]);
 
 
-$applicationDir = dirname(__DIR__);
-/*
- * --------------------------------------------------------------------------
- * 【可选项】定义当前运行环境的常量
- * --------------------------------------------------------------------------
- *
- * 文件名称与APP_ENV定义的环境一致
- * 例：Config/production.php
- *
- */
-if (is_file($applicationDir . '/Config/' .  APPLICATION_ENV . '.php')) {
-    require_once $applicationDir . '/Config/' .  APPLICATION_ENV . '.php';
-}
-
-/*
- * --------------------------------------------------------------------------
- * 【可选项】加载通用配置文件
- * --------------------------------------------------------------------------
- *
- * 加载 HORSELOFT_CONFIG_DIR 目录下以Conf.php结尾的配置文件中的常量或变量
- * 目录路径 Config/*Conf.php
- *
- * 推荐：文件名以小写字母开头
- *
- */
-if (is_dir($applicationDir . '/Config')) {
-    $baseConfigHandle = opendir($applicationDir . '/Config');
-    while (false !== $baseConfigFile = readdir($baseConfigHandle)) {
-        if ($baseConfigFile == '.' || $baseConfigFile == '..') {
-            continue;
-        } else {
-            $suffix = substr($baseConfigFile, -8);
-            if ($suffix != false && $suffix == 'Conf.php') {
-                require_once $applicationDir . '/Config/' . $baseConfigFile;
-            }
-        }
-    }
-    closedir($baseConfigHandle);
-}
-
-/*
- * --------------------------------------------------------------------------
- * 命名空间注册
- * --------------------------------------------------------------------------
- *
- *
- *
- */
-if (!is_file($applicationDir . '/vendor/autoload.php')) {
-    die('文件 vendor/autoload.php 不存在');
-}
-$loader = require_once $applicationDir . '/vendor/autoload.php';
-$loader->addPsr4('Application' . '\\', $applicationDir);
+$loader = require_once dirname(__DIR__) . '/vendor/autoload.php';
+$loader->addPsr4('Application' . '\\', dirname(__DIR__));
 
 /*
  * --------------------------------------------------------------------------

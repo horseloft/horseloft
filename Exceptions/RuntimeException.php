@@ -1,34 +1,26 @@
 <?php
-/**
- * Date: 2021/6/1 10:26
- * User: YHC
- * Desc: 异常处理
- */
 
 namespace Application\Exceptions;
 
 use Horseloft\Core\Drawer\Request;
-use Horseloft\Core\Utils\Helper;
 
 /**
- * 定义RuntimeException类 用于处理RuntimeException类型异常
+ * 定义RuntimeException类 用于处理 \RuntimeException() 类型异常
  *
  * 当前类中必须存在handle()方法
  *
- * handle()方法必须有两个参数
+ * handle()方法**必须**有两个参数
  *
- * handle()方法的第一个参数：Library\Core\Horseloft\Request $request
+ * handle()方法的第一个参数：Horseloft\Core\Drawer\Request $request
  *
  * handle()方法的第二个参数：\Throwable $e
  *
- * 返回值如果是数组，并且含有 code data message 字段，则将这三个字段赋值给服务的返回值
- *
- * 返回值如果不是数组 或者 返回值中不存在 data 字段，则将本次异常处理的返回值赋值给 服务返回值的data字段
+ * handle()方法的返回值将作为本次接口的响应值输出
  *
  * 如果在当前类中出现了异常信息 则当前异常的处理无效，服务将使用默认的异常处理
  *
  * Class RuntimeException
- * @package Services\DemoService\Exceptions
+ * @package Application\Exceptions
  */
 class RuntimeException
 {
@@ -45,7 +37,7 @@ class RuntimeException
              *
              * 如果没有code字段，则使用默认的全局错误码
              */
-            'code' => 0,
+            'code' => $e->getMessage(),
 
             /*
              * 定义接口返回数据
@@ -59,7 +51,7 @@ class RuntimeException
              *
              * 如果没有message字段 则默认返回''
              */
-            'message' => '服务运行异常：' . $e->getMessage()
+            'message' => '服务运行异常：' . $e->getTraceAsString()
         ];
     }
 }

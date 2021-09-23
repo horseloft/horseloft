@@ -1,12 +1,18 @@
 <?php
-/**
- * Date: 2021/4/25 16:57
- * User: YHC
- * Desc: demo
- */
 
 namespace Application\Controller;
 
+use Application\Models\PeopleModel;
+use Application\Models\UserModel;
+
+/**
+ * ------------------------------------------------
+ * 控制器中的方法必须是静态方法
+ * ------------------------------------------------
+ *
+ * Class DemoController
+ * @package Application\Controller
+ */
 class DemoController
 {
     public static function index()
@@ -71,5 +77,15 @@ class DemoController
         echo PHP_EOL;
         echo 'crontab2 ' . date('H:i:s');
         echo PHP_EOL;
+    }
+
+    public static function adapter()
+    {
+        return UserModel::select('id,username')->whereRaw('and id > 1')->whereOr(['id' => 5])->getSql();
+    }
+
+    public static function reservoir()
+    {
+        return PeopleModel::select('id,username')->whereRaw('and id > 1')->whereOr(['id' => 5])->all();
     }
 }
