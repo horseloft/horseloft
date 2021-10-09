@@ -2,7 +2,7 @@
 
 namespace Application\Models;
 
-use Horseloft\Database\Adapter;
+use Horseloft\Database\Reservoir;
 
 /**
  * model继承普通数据库类
@@ -10,7 +10,7 @@ use Horseloft\Database\Adapter;
  * Class UserModel
  * @package Application\Models
  */
-class UserModel extends Adapter
+class UserModel extends Reservoir
 {
     public static $table = 'user';
 
