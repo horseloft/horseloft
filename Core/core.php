@@ -1,22 +1,15 @@
 <?php
 /*
  * --------------------------------------------------------------------------
- * 【定义当前运行环境】 $argv
+ * 【读取env文件并定义当前运行环境】
  * --------------------------------------------------------------------------
  *
- * 用于定义当前环境的Service常量
- * APP_ENV：
- * 当前项目环境；参考值：dev|test|production|online
- *
  */
-if (empty($argv) || empty($argv[1])) {
-    die('启动命令错误；参考格式：php index.php dev' . PHP_EOL);
+if (!is_file(dirname(__DIR__) . '/env.php')) {
+    die('env文件不存在');
 }
-if (is_numeric($argv[1])) {
-    die('启动命令错误；不能使用数字作为服务运行环境' . PHP_EOL);
-}
-define('APPLICATION_ENV', $argv[1]);
 
+require_once dirname(__DIR__) . '/env.php';
 
 $loader = require_once dirname(__DIR__) . '/vendor/autoload.php';
 $loader->addPsr4('Application' . '\\', dirname(__DIR__));

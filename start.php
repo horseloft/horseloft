@@ -42,7 +42,7 @@ require_once __DIR__ . '/Core/core.php';
  * 第二个参数：服务监听的端口
  *
  */
-$horseLoft = new \Horseloft\Core\HTTPServer(APPLICATION_ENV, __DIR__);
+$horseLoft = new \Horseloft\Core\HTTPServer(__DIR__);
 
 
 

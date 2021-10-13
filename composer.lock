@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/horseloft/horseloft-database.git",
-                "reference": "11fbe1fa51d5ccbf8bc5d1c59686e381c69a83c9"
+                "reference": "57719f6de8068101a601580bc6a28a0f205cb3ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/horseloft/horseloft-database/zipball/11fbe1fa51d5ccbf8bc5d1c59686e381c69a83c9",
-                "reference": "11fbe1fa51d5ccbf8bc5d1c59686e381c69a83c9",
+                "url": "https://api.github.com/repos/horseloft/horseloft-database/zipball/57719f6de8068101a601580bc6a28a0f205cb3ae",
+                "reference": "57719f6de8068101a601580bc6a28a0f205cb3ae",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 "source": "https://github.com/horseloft/horseloft-database/tree/v1.0.0",
                 "issues": "https://github.com/horseloft/horseloft-database/issues"
             },
-            "time": "2021-09-23T08:19:12+00:00"
+            "time": "2021-10-13T07:11:47+00:00"
         },
         {
             "name": "horseloft/horseloft-core",
@@ -56,12 +56,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/horseloft/horseloft-core.git",
-                "reference": "09d8a2d42626b4cb47ba4e8f0bc6450ced03c9a6"
+                "reference": "291c8d96be801cd9bb242dde43967880191c5a96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/horseloft/horseloft-core/zipball/09d8a2d42626b4cb47ba4e8f0bc6450ced03c9a6",
-                "reference": "09d8a2d42626b4cb47ba4e8f0bc6450ced03c9a6",
+                "url": "https://api.github.com/repos/horseloft/horseloft-core/zipball/291c8d96be801cd9bb242dde43967880191c5a96",
+                "reference": "291c8d96be801cd9bb242dde43967880191c5a96",
                 "shasum": ""
             },
             "require": {
@@ -92,7 +92,7 @@
                 "source": "https://github.com/horseloft/horseloft-core/tree/v1.0.0",
                 "issues": "https://github.com/horseloft/horseloft-core/issues"
             },
-            "time": "2021-09-23T09:58:15+00:00"
+            "time": "2021-10-13T07:56:24+00:00"
         }
     ],
     "packages-dev": [
