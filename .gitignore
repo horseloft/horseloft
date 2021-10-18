@@ -17,3 +17,4 @@
 #日志文件 不提交至版本库
 /Log/*
 !/Log/.gitignore
+env.ini
