@@ -22,5 +22,61 @@ return [
         'username' => 'htmain',
         'password' => 'z49yf^LLC,d,V9B)+q',
         'driver' => 'sqlserver'
+    ],
+    'more' => [
+        'host' => 'host.docker.internal',
+        'port' => 3306,
+        'database' => 'horseloft',
+        'username' => 'root',
+        'password' => '123456',
+        'driver' => 'mysql',
+        'read' => [
+            'host' => 'host.docker.internal',
+            'port' => 3306,
+            'database' => 'horseloft',
+            'username' => 'root',
+            'password' => '123456',
+            'driver' => 'mysql',
+            [
+                'host' => 'host.docker.internal',
+                'port' => 3306,
+                'database' => 'horseloft',
+                'username' => 'root',
+                'password' => '123456',
+                'driver' => 'mysql',
+            ],
+            [
+                'host' => 'host.docker.internal',
+                'port' => 3306,
+                'database' => 'horseloft',
+                'username' => 'root',
+                'password' => '123456',
+                'driver' => 'mysql',
+            ]
+        ],
+        'write' => [
+            'host' => 'host.docker.internal',
+            'port' => 3307,
+            'database' => 'horseloft',
+            'username' => 'root',
+            'password' => '123456',
+            'driver' => 'mysql',
+            [
+                'host' => 'host.docker.internal',
+                'port' => 3307,
+                'database' => 'horseloft',
+                'username' => 'root',
+                'password' => '123456',
+                'driver' => 'mysql',
+            ],
+            [
+                'host' => 'host.docker.internal',
+                'port' => 3307,
+                'database' => 'horseloft',
+                'username' => 'root',
+                'password' => '123456',
+                'driver' => 'mysql',
+            ]
+        ]
     ]
 ];

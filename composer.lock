@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "horseloft/database",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/horseloft/horseloft-database.git",
-                "reference": "57719f6de8068101a601580bc6a28a0f205cb3ae"
+                "reference": "d479ea3a68986ecce56ebf5e67227fbd97e94f74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/horseloft/horseloft-database/zipball/57719f6de8068101a601580bc6a28a0f205cb3ae",
-                "reference": "57719f6de8068101a601580bc6a28a0f205cb3ae",
+                "url": "https://api.github.com/repos/horseloft/horseloft-database/zipball/d479ea3a68986ecce56ebf5e67227fbd97e94f74",
+                "reference": "d479ea3a68986ecce56ebf5e67227fbd97e94f74",
                 "shasum": ""
             },
             "require": {
@@ -45,23 +45,23 @@
                 "SQLServer"
             ],
             "support": {
-                "source": "https://github.com/horseloft/horseloft-database/tree/v1.0.0",
+                "source": "https://github.com/horseloft/horseloft-database/tree/v1.0.1",
                 "issues": "https://github.com/horseloft/horseloft-database/issues"
             },
-            "time": "2021-10-13T07:11:47+00:00"
+            "time": "2021-10-22T09:44:17+00:00"
         },
         {
             "name": "horseloft/horseloft-core",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/horseloft/horseloft-core.git",
-                "reference": "55d4298c3bc7b3e85b19747860317c97e047e515"
+                "reference": "c81e6cc7a059a7cc55d9305b2aa30bae0dedbfd2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/horseloft/horseloft-core/zipball/55d4298c3bc7b3e85b19747860317c97e047e515",
-                "reference": "55d4298c3bc7b3e85b19747860317c97e047e515",
+                "url": "https://api.github.com/repos/horseloft/horseloft-core/zipball/c81e6cc7a059a7cc55d9305b2aa30bae0dedbfd2",
+                "reference": "c81e6cc7a059a7cc55d9305b2aa30bae0dedbfd2",
                 "shasum": ""
             },
             "require": {
@@ -89,10 +89,10 @@
                 "php"
             ],
             "support": {
-                "source": "https://github.com/horseloft/horseloft-core/tree/v1.0.4",
+                "source": "https://github.com/horseloft/horseloft-core/tree/v1.0.5",
                 "issues": "https://github.com/horseloft/horseloft-core/issues"
             },
-            "time": "2021-10-18T08:55:00+00:00"
+            "time": "2021-10-19T07:31:14+00:00"
         }
     ],
     "packages-dev": [

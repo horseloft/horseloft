@@ -55,5 +55,5 @@ A simple php API framework
 
 
 TODO
-  添加MongoDB支持、添加rabbitmq支持、数据库和Redis的读写分离
+  添加MongoDB支持、添加rabbitmq支持、Redis的读写分离、处理请求参数指定类型为bool的异常
 
