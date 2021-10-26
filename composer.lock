@@ -52,16 +52,16 @@
         },
         {
             "name": "horseloft/horseloft-core",
-            "version": "v1.0.5",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/horseloft/horseloft-core.git",
-                "reference": "c81e6cc7a059a7cc55d9305b2aa30bae0dedbfd2"
+                "reference": "23d965c7dbad1e8a93d9547f21d73cb1430aea8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/horseloft/horseloft-core/zipball/c81e6cc7a059a7cc55d9305b2aa30bae0dedbfd2",
-                "reference": "c81e6cc7a059a7cc55d9305b2aa30bae0dedbfd2",
+                "url": "https://api.github.com/repos/horseloft/horseloft-core/zipball/23d965c7dbad1e8a93d9547f21d73cb1430aea8d",
+                "reference": "23d965c7dbad1e8a93d9547f21d73cb1430aea8d",
                 "shasum": ""
             },
             "require": {
@@ -89,10 +89,10 @@
                 "php"
             ],
             "support": {
-                "source": "https://github.com/horseloft/horseloft-core/tree/v1.0.5",
+                "source": "https://github.com/horseloft/horseloft-core/tree/v1.0.0",
                 "issues": "https://github.com/horseloft/horseloft-core/issues"
             },
-            "time": "2021-10-19T07:31:14+00:00"
+            "time": "2021-10-26T09:30:56+00:00"
         }
     ],
     "packages-dev": [
@@ -1515,7 +1515,6 @@
                 "issues": "https://github.com/sebastianbergmann/resource-operations/issues",
                 "source": "https://github.com/sebastianbergmann/resource-operations/tree/master"
             },
-            "abandoned": true,
             "time": "2015-07-28T20:34:47+00:00"
         },
         {

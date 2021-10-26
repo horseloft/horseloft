@@ -22,19 +22,21 @@ use Horseloft\Core\Drawer\Request;
  * Class RuntimeException
  * @package Application\Exceptions
  */
-class RuntimeException
+class RuntimeCatch
 {
     /**
      * @param Request $request
      * @param \Throwable $e
-     * @return array
+     * @return string
      */
     public static function handle(Request $request, \Throwable $e)
     {
-        return [
-            'request' => $request->all(),
-            'message' => $e->getMessage(),
-            'trace' => $e->getTraceAsString()
-        ];
+        $class = (new \ReflectionClass($e))->getShortName();
+        $message = $e->getMessage();
+        $file = $e->getFile();
+        $line = $e->getLine();
+        $trace = $e->getTraceAsString();
+        $msg = $class . ' ERROR: ' . $message . ' in ' . $file . '(' . $line . ")\n" . $trace;
+        return "自定义异常捕捉\n" . $msg . $request->getIP();
     }
 }

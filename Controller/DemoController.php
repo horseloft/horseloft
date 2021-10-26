@@ -6,6 +6,7 @@ use Application\Models\CityModel;
 use Application\Models\MoreModel;
 use Application\Models\TeacherModel;
 use Application\Models\UserModel;
+use Horseloft\Core\Drawer\Request;
 use Horseloft\Database\Transaction;
 
 /**
@@ -21,6 +22,16 @@ class DemoController
     public static function index()
     {
         return 'horseloft';
+    }
+
+    public static function param(Request $request)
+    {
+        return [
+            $request->getUri(),
+            $request->getIP(),
+            $request->getMethod(),
+            $request->all()
+        ];
     }
 
     public static function where()
