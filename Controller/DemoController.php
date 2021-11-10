@@ -8,6 +8,7 @@ use Application\Models\TeacherModel;
 use Application\Models\UserModel;
 use Horseloft\Core\Drawer\Request;
 use Horseloft\Database\Transaction;
+use Swoole\Coroutine;
 
 /**
  * ------------------------------------------------
@@ -22,6 +23,24 @@ class DemoController
     public static function index()
     {
         return 'horseloft';
+    }
+
+    public static function coroutine()
+    {
+        Coroutine::create(function () {
+            Coroutine::sleep(5);
+            echo PHP_EOL . '--1--' . PHP_EOL;
+        });
+
+        Coroutine::create(function () {
+            Coroutine::sleep(3);
+            echo PHP_EOL . '--2--' . PHP_EOL;
+        });
+
+        echo PHP_EOL . Coroutine::gethostbyname('baidu.com') . PHP_EOL;
+
+        echo PHP_EOL . '--3--' . PHP_EOL;
+        return 'coroutine';
     }
 
     public static function param(Request $request)
