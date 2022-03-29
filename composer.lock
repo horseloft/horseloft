@@ -52,16 +52,16 @@
         },
         {
             "name": "horseloft/horseloft-core",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/horseloft/horseloft-core.git",
-                "reference": "23d965c7dbad1e8a93d9547f21d73cb1430aea8d"
+                "reference": "664921ccb0b0f5af0d76441538dbd43870523601"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/horseloft/horseloft-core/zipball/23d965c7dbad1e8a93d9547f21d73cb1430aea8d",
-                "reference": "23d965c7dbad1e8a93d9547f21d73cb1430aea8d",
+                "url": "https://api.github.com/repos/horseloft/horseloft-core/zipball/664921ccb0b0f5af0d76441538dbd43870523601",
+                "reference": "664921ccb0b0f5af0d76441538dbd43870523601",
                 "shasum": ""
             },
             "require": {
@@ -89,10 +89,10 @@
                 "php"
             ],
             "support": {
-                "source": "https://github.com/horseloft/horseloft-core/tree/v1.0.0",
+                "source": "https://github.com/horseloft/horseloft-core/tree/v1.0.1",
                 "issues": "https://github.com/horseloft/horseloft-core/issues"
             },
-            "time": "2021-10-26T09:30:56+00:00"
+            "time": "2022-03-29T10:16:57+00:00"
         }
     ],
     "packages-dev": [
@@ -1853,5 +1853,5 @@
         "ext-redis": ">=2.2.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
