@@ -22,7 +22,7 @@ use Horseloft\Core\Drawer\Request;
  * Class RuntimeException
  * @package Application\Exceptions
  */
-class RuntimeCatch
+class RuntimeException
 {
     /**
      * @param Request $request
@@ -37,6 +37,6 @@ class RuntimeCatch
         $line = $e->getLine();
         $trace = $e->getTraceAsString();
         $msg = $class . ' ERROR: ' . $message . ' in ' . $file . '(' . $line . ")\n" . $trace;
-        return "自定义异常捕捉\n" . $msg . $request->getIP();
+        return "自定义异常捕捉\n" . $msg . "\n" . $request->getIP();
     }
 }

@@ -10,6 +10,8 @@ A simple php API framework
 
 **文档参考** [wiki](https://github.com/horseloft/horseloft-php/wiki)
 
-TODO 
-    处理请求参数指定类型为bool的异常
+TODO
 
+Release
+  1. 添加全局functions
+  2. 优化异常处理
