@@ -11,7 +11,7 @@ use Horseloft\Database\Reservoir;
 
 class CityModel extends Reservoir
 {
-    public static $connection = 'main';
+    public static $connection = 'default';
 
     public static $table = 'city';
 

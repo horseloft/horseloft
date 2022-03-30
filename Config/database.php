@@ -15,14 +15,6 @@ return [
         'password' => '123456',
         'driver' => 'mysql'
     ],
-    'main' => [
-        'host' => '192.168.199.36',
-        'port' => 11440,
-        'database' => 'HTOLmain',
-        'username' => 'htmain',
-        'password' => 'z49yf^LLC,d,V9B)+q',
-        'driver' => 'sqlserver'
-    ],
     'more' => [
         'host' => 'host.docker.internal',
         'port' => 3306,
