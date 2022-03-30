@@ -52,21 +52,24 @@
         },
         {
             "name": "horseloft/horseloft-core",
-            "version": "v1.0.1",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/horseloft/horseloft-core.git",
-                "reference": "664921ccb0b0f5af0d76441538dbd43870523601"
+                "reference": "ad2853a28a7f55f800d04c5e0c3043e498238351"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/horseloft/horseloft-core/zipball/664921ccb0b0f5af0d76441538dbd43870523601",
-                "reference": "664921ccb0b0f5af0d76441538dbd43870523601",
+                "url": "https://api.github.com/repos/horseloft/horseloft-core/zipball/ad2853a28a7f55f800d04c5e0c3043e498238351",
+                "reference": "ad2853a28a7f55f800d04c5e0c3043e498238351",
                 "shasum": ""
             },
             "require": {
                 "ext-swoole": "~4.4",
                 "php": ">=7.1"
+            },
+            "require-dev": {
+                "swoole/ide-helper": "4.4"
             },
             "type": "library",
             "autoload": {
@@ -89,10 +92,10 @@
                 "php"
             ],
             "support": {
-                "source": "https://github.com/horseloft/horseloft-core/tree/v1.0.1",
+                "source": "https://github.com/horseloft/horseloft-core/tree/v1.0.2",
                 "issues": "https://github.com/horseloft/horseloft-core/issues"
             },
-            "time": "2022-03-29T10:16:57+00:00"
+            "time": "2022-03-30T08:05:08+00:00"
         }
     ],
     "packages-dev": [
