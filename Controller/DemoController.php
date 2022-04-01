@@ -25,6 +25,11 @@ class DemoController
         return 'horseloft';
     }
 
+    public static function city()
+    {
+        return CityModel::select()->where(['cityId' => ['gt' => 348]])->all();
+    }
+
     public static function coroutine()
     {
         Coroutine::create(function () {

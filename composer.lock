@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "horseloft/database",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/horseloft/horseloft-database.git",
-                "reference": "3f7747738b6ad6b777bb11fe137fee92d98f2407"
+                "reference": "f7a4333beab879decf5a6ebaee718f110553005a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/horseloft/horseloft-database/zipball/3f7747738b6ad6b777bb11fe137fee92d98f2407",
-                "reference": "3f7747738b6ad6b777bb11fe137fee92d98f2407",
+                "url": "https://api.github.com/repos/horseloft/horseloft-database/zipball/f7a4333beab879decf5a6ebaee718f110553005a",
+                "reference": "f7a4333beab879decf5a6ebaee718f110553005a",
                 "shasum": ""
             },
             "require": {
@@ -45,10 +45,10 @@
                 "SQLServer"
             ],
             "support": {
-                "source": "https://github.com/horseloft/horseloft-database/tree/v1.0.4",
+                "source": "https://github.com/horseloft/horseloft-database/tree/v1.0.5",
                 "issues": "https://github.com/horseloft/horseloft-database/issues"
             },
-            "time": "2022-03-31T08:50:31+00:00"
+            "time": "2022-04-01T07:53:49+00:00"
         },
         {
             "name": "horseloft/horseloft-core",

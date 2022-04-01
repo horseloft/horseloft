@@ -66,6 +66,7 @@ return [
 
     'get' => [
         'index' => 'DemoController::index',
+        'city' => 'DemoController::city',
     ],
 
     /*
