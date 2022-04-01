@@ -70,5 +70,6 @@ return [
                 'driver' => 'mysql',
             ]
         ]
-    ]
+    ],
+    'env' => env('database', [])
 ];
